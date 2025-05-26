@@ -4,7 +4,7 @@ import AboutImage from "../assets/about.png";
 
 const AboutUs = () => {
   return (
-    <div className="pt-20 px-20 flex justify-between h-screen bg-primary">
+    <div className="pt-20 md:px-20 px-10 flex md:flex-row flex-col-reverse justify-between md:h-screen bg-primary gap-10 md:gap-0">
       <div className="gap-10 flex flex-col">
         <h2 className="text-secondary text-3xl font-bold open-sans ">
           About Us
