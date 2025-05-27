@@ -1,14 +1,27 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.png";
-import { Menu, X } from "lucide-react"; // or use any icon library like react-icons
+import { Menu, X } from "lucide-react";
+import * as motion from "motion/react-client";
 
 const LargeScreenNav = () => {
   return (
-    <nav className="fixed top-0 z-50 w-full shadow-md bg-primary py-2 flex justify-between items-center px-10 hidden md:flex">
+    <motion.nav
+      className="fixed top-0 z-50 w-full shadow-md bg-primary py-2 flex justify-between items-center px-10 hidden md:flex"
+      initial={{ opacity: 0, scale: 1, y: -50 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{
+        duration: 0.4,
+        scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+      }}
+    >
       <div>
         <a href="#mavique">
-        <img src={Logo} alt="Mavique Logo" className="h-16 w-auto hover:cursor-pointer" />
-      </a>
+          <img
+            src={Logo}
+            alt="Mavique Logo"
+            className="h-16 w-auto hover:cursor-pointer"
+          />
+        </a>
       </div>
       <div className="space-x-4">
         <a
@@ -33,7 +46,7 @@ const LargeScreenNav = () => {
           </button>
         </a>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
@@ -41,9 +54,21 @@ const SmallScreenNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 z-50 w-full shadow-md bg-primary py-2 px-6 flex justify-between items-center md:hidden">
+    <motion.nav
+      className="fixed top-0 z-50 w-full shadow-md bg-primary py-2 px-6 flex justify-between items-center md:hidden"
+      initial={{ opacity: 0, scale: 1, y: -50 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{
+        duration: 0.4,
+        scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+      }}
+    >
       <a href="#mavique">
-        <img src={Logo} alt="Mavique Logo" className="h-12 w-auto hover:cursor-pointer" />
+        <img
+          src={Logo}
+          alt="Mavique Logo"
+          className="h-12 w-auto hover:cursor-pointer"
+        />
       </a>
       <button onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? (
@@ -80,7 +105,7 @@ const SmallScreenNav = () => {
           </a>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

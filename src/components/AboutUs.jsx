@@ -1,12 +1,24 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import AboutImage from "../assets/about.png";
+import { useInView, motion } from "motion/react";
+import { useRef } from "react";
 
 const AboutUs = () => {
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const leftInView = useInView(leftRef, { once: true });
+  const rightInView = useInView(rightRef, { once: true });
   return (
     <div className="pt-20 xl:pt-20 md:pt-0 md:px-20 px-10 flex md:flex-row flex-col-reverse justify-between xl:h-screen bg-primary gap-10 md:pb-40 pb-0 xl:pb-0 xl:gap-0">
-      <div className="gap-10 flex flex-col">
-        <h2 className="text-secondary text-3xl font-bold open-sans ">
+      <motion.div
+        ref={leftRef}
+        initial={{ opacity: 0, x: -50 }}
+        animate={leftInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6 }}
+        className="gap-10 flex flex-col"
+      >
+        <h2 className="text-secondary text-3xl font-bold open-sans">
           About Us
         </h2>
         <span className="text-secondary text-lg font-semibold open-sans xl:max-w-2xl">
@@ -33,17 +45,23 @@ const AboutUs = () => {
             className="text-primary font-bold bg-secondary rounded-full px-10 py-2 w-fit hover:shadow-xl flex items-center"
           >
             <span>Get Started</span>
-            <ArrowRight className="inline ml-2" size={28} fontWeight={64} />
+            <ArrowRight className="inline ml-2" size={28} />
           </a>
         </span>
-      </div>
-      <div>
+      </motion.div>
+
+      <motion.div
+        ref={rightRef}
+        initial={{ opacity: 0, x: 50 }}
+        animate={rightInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
         <img
           src={AboutImage}
           alt="about us"
           className="xl:h-2/3 h-2/3 rounded-lg md:pt-20 pt-0"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };
