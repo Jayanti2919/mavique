@@ -19,13 +19,13 @@ const ServiceCard = ({ title, description, image }) => {
 const Services = () => {
   return (
     <div className="mt-10 md:mt-0 md:px-20 px-10 flex gap-5 flex-col pb-10">
-      <h2 className="text-secondary text-3xl font-bold open-sans ">
+      <h2 className="text-secondary text-3xl font-bold open-sans">
         Our Services
       </h2>
       <p className="text-xl open-sans font-semibold text-secondary">
         We offer a range of services to help you achieve your goals.
       </p>
-      <div className="grid md:grid-cols-4 grid-cols-1 md:gap-10 gap-5 mt-5">
+      <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-10 gap-5 mt-5">
         {services.map((service, index) => (
           <ServiceCard
             key={index}
@@ -36,7 +36,14 @@ const Services = () => {
         ))}
       </div>
       <p className="text-xl open-sans font-semibold text-secondary">
-        <span className="font-bold hover:cursor-pointer">Contact us </span>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdgHhlJ4Ryd6XoNZWZj6etIN4xmsenOddM9c52K5J0bmIsq1w/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold hover:cursor-pointer"
+        >
+          Contact us{" "}
+        </a>
         to learn more about how we can assist you.
       </p>
     </div>
