@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import AboutImage from "../assets/about.png";
 import { useInView, motion } from "motion/react";
 import { useRef } from "react";
+import AboutImagePhone from "../assets/about-phone.png";
 
 const AboutUs = () => {
   const leftRef = useRef(null);
@@ -59,7 +60,12 @@ const AboutUs = () => {
         <img
           src={AboutImage}
           alt="about us"
-          className="xl:h-2/3 h-2/3 rounded-lg md:pt-20 pt-0"
+          className="xl:h-2/3 h-2/3 rounded-lg md:pt-20 pt-0 hidden md:block"
+        />
+        <img
+          src={AboutImagePhone}
+          alt="about us"
+          className="xl:h-2/3 h-2/3 rounded-lg md:pt-20 pt-0 block md:hidden"
         />
       </motion.div>
     </div>
